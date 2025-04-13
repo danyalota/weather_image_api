@@ -96,7 +96,7 @@ curl -X 'GET' 'http://127.0.0.1:8000/get_entires'
 - I did not use specific exception definitions. 
 - I haven’t added a dedicated logger yet, but it should be integrated and passed through the Uvicorn config, as Uvicorn can ignore logs in certain cases. 
 - I tested the core functionality manually for now, without adding unit tests.
-- 
+- Keept code quality libraries local 
 
 ## Reflection on AI Use
 
