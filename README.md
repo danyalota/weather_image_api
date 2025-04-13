@@ -48,7 +48,7 @@ pip install .
 
 ## Start the Server:
 ```bash
-$ python -m uvicorn weather_image_api.main:app --reload
+python -m uvicorn weather_image_api.main:app --reload
 ```
 
 ## Usage
