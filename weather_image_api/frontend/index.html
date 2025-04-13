@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Image Upload</title>
+</head>
+<body>
+    <h2>Upload Weather Image</h2>
+    <form id="uploadForm" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" required><br><br>
+        <textarea name="metadata" placeholder='{"station_id": "ABC123", "captured_at": "2025-04-13T10:00:00Z", "location": "Berlin", "temperature": 21, "humidity": 60}' rows="10" cols="50" required></textarea><br><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <pre id="response"></pre>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            const response = await fetch('/upload_image', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById('response').textContent = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>
